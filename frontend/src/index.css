@@ -4,7 +4,10 @@
 /* layout */
 :root {
   --primary: #1aac83;
-  --error: #e7195a;
+  --error: #ff605c;
+  --warning: #ffbd44;
+  --success: #00ca4e;
+  --text: rgb(61, 61, 61);
 }
 body {
   background: #f1f1f1;
@@ -12,7 +15,7 @@ body {
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: #0b1416;
 }
 header .container {
   max-width: 1400px;
@@ -23,7 +26,7 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: #f1f1f1;
   text-decoration: none;
 }
 .pages {
@@ -35,12 +38,17 @@ header a {
 /* homepage */
 .home {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 36px;
+}
+@media (max-width: 768px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
 }
 .workout-details {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 8px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
@@ -49,36 +57,43 @@ header a {
 .workout-details h3 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: var(--text);
 }
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
 }
 .workout-details span {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
+  background: var(--error);
+  padding: 7px;
   border-radius: 50%;
-  color: #333;
+  color: #fff;
 }
 
 /* new workout form */
+form {
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  height: max-content;
+}
 label,
 input {
   display: block;
 }
 input {
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
   margin-bottom: 20px;
   width: 100%;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 form button {
@@ -87,10 +102,11 @@ form button {
   color: #fff;
   padding: 10px;
   font-family: "Poppins";
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  width: 100%;
 }
-div.error {
+.error {
   padding: 10px;
   background: #ffefef;
   border: 1px solid var(--error);
@@ -100,4 +116,12 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+
+/* workout details */
+.completed {
+  color: var(--primary);
+}
+.not-completed {
+  color: var(--warning);
 }
