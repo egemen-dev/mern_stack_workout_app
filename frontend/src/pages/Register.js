@@ -11,7 +11,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await register(username, email, password);
+    const result = await register(username, email, password);
+
+    if (result) {
+      window.location.href = "/";
+    } else {
+      setEmail("");
+      setUsername("");
+      setPassword("");
+    }
   };
 
   return (
