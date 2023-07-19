@@ -6,14 +6,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Logout from "./pages/Logout";
 import Navbar from "./components/Navbar";
 import checkLogin from "./hooks/useCheckLogin";
 
 // TODO:
 // 1. Register a new user and save the token in localStorage - DONE
 // 2. Prevent logged in users from accessing the login and register pages - DONE
-// 3. Login a user and save the token in localStorage - WIP
-// 4. Logout a user and remove the token from localStorage - WIP
+// 3. Login a user and save the token in localStorage - DONE
+// 4. Logout a user and remove the token from localStorage - DONE
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} user={user} />
             <Route path="/register" element={<Register />} user={user} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </div>

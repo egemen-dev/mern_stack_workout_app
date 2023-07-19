@@ -16,7 +16,11 @@ const Navbar = ({ user }) => {
                 <Link to="/register">Register</Link>
               </>
             )}
-            {user && <Link to="/logout">Logout</Link>}
+            {user && (
+              <Link to="/logout" onClick={() => localStorage.removeItem("user")}>
+                Logout
+              </Link>
+            )}
           </div>
         </nav>
       </div>
