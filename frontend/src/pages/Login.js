@@ -1,20 +1,28 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = ({ user }) => {
   // prevent logged in users from accessing the login page
   useEffect(() => {
-    if (user !== null) {
-      window.location.replace("/");
-    }
-  }, [user]);
+    if (user) window.location.replace("/");
+  }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, loading, error } = useLogin();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login:", email, password);
+
+    const result = await login(email, password);
+
+    if (result) {
+      window.location.href = "/";
+    } else {
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (

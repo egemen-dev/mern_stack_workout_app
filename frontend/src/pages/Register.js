@@ -5,10 +5,8 @@ import { useRegister } from "../hooks/useRegister";
 const Register = ({ user }) => {
   // prevent logged in users from accessing the login page
   useEffect(() => {
-    if (user !== null) {
-      window.location.replace("/");
-    }
-  }, [user]);
+    if (user) window.location.replace("/");
+  }, []);
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");

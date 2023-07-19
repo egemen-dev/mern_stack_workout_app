@@ -15,7 +15,7 @@ export const checkLogin = ({ setUser }) => {
     window.location.pathname !== "/login"
   ) {
     console.log("User is directed to login page.");
-    window.location.href = "/login";
+    window.location.replace("/login");
   }
 };
 
