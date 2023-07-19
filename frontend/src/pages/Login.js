@@ -1,7 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Login = () => {
+const Login = ({ user }) => {
+  // prevent logged in users from accessing the login page
+  useEffect(() => {
+    if (user !== null) {
+      window.location.replace("/");
+    }
+  }, [user]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
