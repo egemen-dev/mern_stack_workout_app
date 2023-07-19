@@ -1,8 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRegister } from "../hooks/useRegister";
 
-const Register = () => {
+const Register = ({ user }) => {
+  // prevent logged in users from accessing the login page
+  useEffect(() => {
+    if (user || localStorage.getItem("user")) window.location.replace("/");
+  }, []);
+
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +16,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await register(username, email, password);
+    const result = await register(username, email, password);
+
+    if (result) {
+      window.location.href = "/";
+    } else {
+      setEmail("");
+      setUsername("");
+      setPassword("");
+    }
   };
 
   return (

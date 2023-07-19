@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <header className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
@@ -10,8 +10,17 @@ const Navbar = () => {
         </Link>
         <nav>
           <div>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            {!user && (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+              </>
+            )}
+            {user && (
+              <Link to="/logout" onClick={() => localStorage.removeItem("user")}>
+                Logout
+              </Link>
+            )}
           </div>
         </nav>
       </div>
