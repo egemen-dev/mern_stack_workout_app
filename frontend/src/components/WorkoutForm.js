@@ -12,8 +12,15 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
   const [duration, setDuration] = useState(0);
   const [completed, setCompleted] = useState(false);
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      console.log("User is not logged in and can not use the form.");
+      return;
+    }
 
     const workout = {
       type,
@@ -28,7 +35,10 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
 
     const response = await fetch("/api/workouts", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
       body: JSON.stringify(workout),
     });
 

@@ -11,8 +11,21 @@ const Home = () => {
     setWorkouts(newWorkouts);
   };
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const fetchWorkouts = async () => {
-    const response = await fetch("/api/workouts");
+    if (!user) {
+      console.log("User is not logged in.");
+      return;
+    }
+
+    const response = await fetch("/api/workouts", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+
     const json = await response.json();
 
     console.log(json);

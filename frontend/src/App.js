@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // Pages and Components
 import Home from "./pages/Home";
@@ -8,7 +8,6 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Logout from "./pages/Logout";
 import Navbar from "./components/Navbar";
-import checkLogin from "./hooks/useCheckLogin";
 
 // TODO:
 // 1. Register a new user and save the token in localStorage - DONE
@@ -21,7 +20,7 @@ function App() {
 
   // Check if user is logged in
   useEffect(() => {
-    checkLogin({ setUser });
+    setUser(JSON.parse(localStorage.getItem("user")));
   }, []);
 
   return (
@@ -31,10 +30,18 @@ function App() {
         <p>{user && `${user.email} logged in`}</p>
         <div className="pages">
           <Routes>
-            <Route path="/login" element={<Login />} user={user} />
-            <Route path="/register" element={<Register />} user={user} />
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/" />}
+              user={user}
+            />
+            <Route
+              path="/register"
+              element={!user ? <Register /> : <Navigate to="/" />}
+              user={user}
+            />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={!user ? <Navigate to="/login" /> : <Home />} />
           </Routes>
         </div>
       </BrowserRouter>

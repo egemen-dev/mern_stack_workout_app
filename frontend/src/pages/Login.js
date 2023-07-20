@@ -2,12 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useLogin } from "../hooks/useLogin";
 
-const Login = ({ user }) => {
-  // prevent logged in users from accessing the login page
-  useEffect(() => {
-    if (user || localStorage.getItem("user")) window.location.replace("/");
-  }, []);
-
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, loading, error } = useLogin();

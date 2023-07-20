@@ -2,12 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useRegister } from "../hooks/useRegister";
 
-const Register = ({ user }) => {
-  // prevent logged in users from accessing the login page
-  useEffect(() => {
-    if (user || localStorage.getItem("user")) window.location.replace("/");
-  }, []);
-
+const Register = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
