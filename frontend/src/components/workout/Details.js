@@ -14,7 +14,7 @@ const Details = ({ workout }) => {
             Distance: <strong>{workout.distance} km</strong>
           </label>
           <progress
-            className="progress progress-success w-72"
+            className="progress progress-success w-full"
             value={workout.distance}
             max="10"
           ></progress>
@@ -27,7 +27,7 @@ const Details = ({ workout }) => {
             Reps: <strong>{workout.reps}</strong>
           </label>
           <progress
-            className="progress progress-success w-72"
+            className="progress progress-success w-full"
             value={workout.reps}
             max="12"
           ></progress>
@@ -35,7 +35,7 @@ const Details = ({ workout }) => {
             Sets: <strong>{workout.sets}</strong>
           </label>
           <progress
-            className="progress progress-success w-72"
+            className="progress progress-success w-full"
             value={workout.sets}
             max="3"
           ></progress>
@@ -43,7 +43,7 @@ const Details = ({ workout }) => {
             Weight: <strong>{workout.weight} kg</strong>
           </label>
           <progress
-            className="progress progress-success w-72"
+            className="progress progress-success w-full"
             value={workout.weight}
             max="36"
           ></progress>
