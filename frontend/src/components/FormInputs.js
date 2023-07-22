@@ -13,6 +13,7 @@ const FormInputs = ({
   weight,
   setWeight,
 }) => {
+  // Put distanc out of the switch statements because it is used in all cases
   switch (type) {
     case "cardio":
       return (
