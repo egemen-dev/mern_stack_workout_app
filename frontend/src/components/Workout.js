@@ -19,6 +19,23 @@ const WorkoutTemplate = ({ workout, workouts, setNewWorkouts }) => {
     }
   };
 
+  const renderExerciseTypeBadge = () => {
+    switch (workout.type) {
+      case "cardio":
+        return <div className="badge badge-primary badge-sm">cardio</div>;
+      case "lifting":
+        return <div className="badge badge-secondary badge-sm">lifting</div>;
+      case "stretching":
+        return <div className="badge badge-accent badge-sm">stretching</div>;
+      case "cycling":
+        return <div className="badge badge badge-sm">cycling</div>;
+      case "running":
+        return <div className="badge badge-neutral badge-sm">running</div>;
+      case "walking":
+        return <div className="badge badge-ghost badge-sm">walking</div>;
+    }
+  };
+
   const renderExerciseDetails = () => {
     switch (workout.type) {
       case "cardio":
@@ -72,16 +89,26 @@ const WorkoutTemplate = ({ workout, workouts, setNewWorkouts }) => {
   };
 
   return (
-    <div className="workout-details">
-      <h3>{workout.title}</h3>
-      {renderExerciseDetails()}
-      <p className={workout.completed ? "completed" : "not-completed"}>
-        <strong>{workout.completed ? "Completed" : "Not Completed"}</strong>
-      </p>
-      <p>
-        <em>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</em>
-      </p>
-      <span className="delete" onClick={handleDelete}></span>
+    <div className="card w-96 bg-base-100 shadow-xl border border-base-200 my-8">
+      <div className="card-body">
+        <div className="flex justify-between">
+          <div className="card-title">
+            {workout.title}
+            {renderExerciseTypeBadge()}
+          </div>
+          <div className="flex justify-between space-x-2">
+            <button className="btn btn-outline btn-error btn-xs" onClick={handleDelete}>
+              Delete
+            </button>
+          </div>
+        </div>
+        {renderExerciseDetails()}
+        <p>
+          <em className="flex justify-end">
+            {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
+          </em>
+        </p>
+      </div>
     </div>
   );
 };
