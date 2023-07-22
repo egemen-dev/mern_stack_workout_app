@@ -27,6 +27,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar user={user} />
+        <h1 className="text-3xl font-bold underline">Hello world sadasd!</h1>
         <p>{user && `${user.email} logged in`}</p>
         <div className="pages">
           <Routes>
