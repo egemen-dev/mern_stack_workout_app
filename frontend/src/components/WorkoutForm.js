@@ -65,11 +65,18 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h3>Add a New Workout</h3>
+    <form
+      className="card w-96 bg-base-100 shadow-xl border border-base-200 my-8 flex flex-col justify-start items-center p-4 gap-3"
+      onSubmit={handleSubmit}
+    >
+      <h3 className="card-title">Workout</h3>
 
-      <label>Type:</label>
-      <select value={type} onChange={(e) => setType(e.target.value)}>
+      <label className="label">Completed:</label>
+      <select
+        className="select select-success w-full max-w-xs"
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+      >
         <option value="cardio">Cardio</option>
         <option value="lifting">Lifting</option>
         <option value="stretching">Stretching</option>
@@ -78,10 +85,11 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
         <option value="walking">Walking</option>
       </select>
 
-      <label>Title:</label>
+      <label className="label">Title:</label>
       <input
         type="text"
         placeholder="e.g. Bench Press"
+        className="input input-bordered w-full max-w-xs "
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -102,16 +110,10 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
           duration,
           setDuration,
         })}
-
-      <label>Completed:</label>
-      <input
-        type="checkbox"
-        checked={completed}
-        onChange={(e) => setCompleted(e.target.checked)}
-      />
-
-      <div className="button-container">
-        <button type="submit">Add Workout</button>
+      <div className="w-full flex justify-center pt-6">
+        <button type="submit" className="btn btn-outline btn-wide btn-success w-full">
+          success
+        </button>
       </div>
     </form>
   );
