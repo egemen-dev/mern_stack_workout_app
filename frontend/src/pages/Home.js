@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import WorkoutDetails from "../components/WorkoutDetails";
+import Workout from "../components/Workout";
 import WorkoutForm from "../components/WorkoutForm";
 
 const Home = () => {
@@ -48,10 +48,10 @@ const Home = () => {
           setNewWorkouts={setNewWorkouts}
           setFlashMessage={setFlash}
         />
-        <div className="workouts">
+        <div className="">
           {workouts &&
             workouts.map((workout) => (
-              <WorkoutDetails
+              <Workout
                 workout={workout}
                 key={workout._id}
                 workouts={workouts}
