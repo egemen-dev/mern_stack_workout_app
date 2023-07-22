@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
   return (
-    <div className="navbar bg-base-200 px-48">
+    <div className="navbar bg-base-200 lg:px-48">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           <h1>Workout Tracker</h1>
