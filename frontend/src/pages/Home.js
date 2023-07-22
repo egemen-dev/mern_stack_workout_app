@@ -40,16 +40,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-5 my-6">
       {flash && <p className="error">{flash}</p>}
-      <div className="col-span-2 flex flex-col justify-start items-center w-full">
+      <div className="col-span-2 flex flex-col lg:justify-start items-center p-4 lg:pl-40 lg:pr-8">
         <WorkoutForm
           workouts={workouts}
           setNewWorkouts={setNewWorkouts}
           setFlashMessage={setFlash}
         />
       </div>
-      <div className="col-span-3 flex flex-col justify-start items-center">
+      <div className="col-span-3 flex flex-col lg:justify-start items-center p-4 lg:pr-40 lg:pl-8">
         {workouts &&
           workouts.map((workout) => (
             <WorkoutCard

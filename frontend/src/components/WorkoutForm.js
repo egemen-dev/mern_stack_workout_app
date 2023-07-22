@@ -66,14 +66,12 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
 
   return (
     <form
-      className="card w-96 bg-base-100 shadow-xl border border-base-200 my-8 flex flex-col justify-start items-center p-4 gap-3 w-full md:w-4/5"
+      className="card w-96 shadow-xl flex flex-col justify-start items-center p-6 gap-3 w-full border border-base-200"
       onSubmit={handleSubmit}
     >
-      <h3 className="card-title">Workout</h3>
-
-      <label className="label">Completed:</label>
+      <h3 className="card-title pb-4">New Workout</h3>
       <select
-        className="select select-bordered w-full max-w-xs"
+        className="select select-bordered w-full"
         value={type}
         onChange={(e) => setType(e.target.value)}
       >
@@ -88,8 +86,8 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
       <label className="label">Title:</label>
       <input
         type="text"
-        placeholder="e.g. Bench Press"
-        className="input input-bordered w-full max-w-xs "
+        placeholder="e.g., bench press"
+        className="input input-bordered w-full"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -112,11 +110,11 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
         min="0"
         max="60"
         value={duration}
-        class="range"
+        className="range"
         step="3"
         onChange={(e) => setDuration(e.target.value)}
       />
-      <div class="w-full flex justify-between text-xs px-2">
+      <div className="w-full flex justify-between text-xs px-2">
         <span>0</span>
         <span>15</span>
         <span>30</span>

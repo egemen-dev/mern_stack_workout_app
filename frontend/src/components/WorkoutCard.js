@@ -22,7 +22,7 @@ const WorkoutCard = ({ workout, workouts, setNewWorkouts }) => {
   };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl border border-base-200 my-6 w-full md:w-4/5">
+    <div className="card w-96 bg-base-100 shadow-xl border border-base-200 mb-4 w-full">
       <div className="card-body">
         <div className="flex justify-between">
           <div className="card-title">
@@ -36,11 +36,11 @@ const WorkoutCard = ({ workout, workouts, setNewWorkouts }) => {
           </div>
         </div>
         <Details workout={workout} />
-        <p>
-          <div className="flex justify-space-between text-sm pt-2.5">
+        <div>
+          <p className="flex justify-space-between text-sm pt-2.5">
             {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
-          </div>
-        </p>
+          </p>
+        </div>
       </div>
     </div>
   );
