@@ -37,7 +37,7 @@ const WorkoutCard = ({ workout, workouts, setNewWorkouts }) => {
         </div>
         <Details workout={workout} />
         <p>
-          <div className="flex justify-space-between text-sm">
+          <div className="flex justify-space-between text-sm pt-2.5">
             {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
           </div>
         </p>
