@@ -2,8 +2,6 @@ import React from "react";
 
 const FormInputs = ({
   type,
-  duration,
-  setDuration,
   distance,
   setDistance,
   reps,
@@ -13,32 +11,7 @@ const FormInputs = ({
   weight,
   setWeight,
 }) => {
-  // Put distanc out of the switch statements because it is used in all cases
   switch (type) {
-    case "cardio":
-      return (
-        <>
-          <label className="label">Duration (min):</label>
-          <input
-            type="range"
-            min="0"
-            max="120"
-            value={duration}
-            class="range"
-            step="20"
-            onChange={(e) => setDuration(e.target.value)}
-          />
-          <div class="w-full flex justify-between text-xs px-2">
-            <span>0</span>
-            <span>20</span>
-            <span>40</span>
-            <span>60</span>
-            <span>80</span>
-            <span>100</span>
-            <span>120</span>
-          </div>
-        </>
-      );
     case "lifting":
       return (
         <>
@@ -61,7 +34,6 @@ const FormInputs = ({
             <span>20</span>
             <span>24</span>
           </div>
-
           <label className="label">Sets:</label>
           <input
             type="range"
@@ -81,7 +53,6 @@ const FormInputs = ({
             <span>5</span>
             <span>6</span>
           </div>
-
           <label className="label">Weight (kg):</label>
           <input
             type="range"
@@ -107,51 +78,6 @@ const FormInputs = ({
             <span>66</span>
             <span>72</span>
           </div>
-
-          <label className="label">Duration (min):</label>
-          <input
-            type="range"
-            min="0"
-            max="120"
-            value={duration}
-            class="range"
-            step="20"
-            onChange={(e) => setDuration(e.target.value)}
-          />
-          <div class="w-full flex justify-between text-xs px-2">
-            <span>0</span>
-            <span>20</span>
-            <span>40</span>
-            <span>60</span>
-            <span>80</span>
-            <span>100</span>
-            <span>120</span>
-          </div>
-        </>
-      );
-    case "stretching":
-      return (
-        <>
-          <label className="label">Duration (min):</label>
-
-          <input
-            type="range"
-            min="0"
-            max="120"
-            value={duration}
-            class="range"
-            step="20"
-            onChange={(e) => setDuration(e.target.value)}
-          />
-          <div class="w-full flex justify-between text-xs px-2">
-            <span>0</span>
-            <span>20</span>
-            <span>40</span>
-            <span>60</span>
-            <span>80</span>
-            <span>100</span>
-            <span>120</span>
-          </div>
         </>
       );
     case "cycling":
@@ -160,7 +86,6 @@ const FormInputs = ({
       return (
         <>
           <label className="label">Distance (km):</label>
-
           <input
             type="range"
             min="0"
@@ -177,30 +102,10 @@ const FormInputs = ({
             <span>15</span>
             <span>20</span>
           </div>
-
-          <label className="label">Duration (min):</label>
-          <input
-            type="range"
-            min="0"
-            max="120"
-            value={duration}
-            class="range"
-            step="20"
-            onChange={(e) => setDuration(e.target.value)}
-          />
-          <div class="w-full flex justify-between text-xs px-2">
-            <span>0</span>
-            <span>20</span>
-            <span>40</span>
-            <span>60</span>
-            <span>80</span>
-            <span>100</span>
-            <span>120</span>
-          </div>
         </>
       );
     default:
-      return null;
+      return <></>;
   }
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Workout from "../components/Workout";
+import WorkoutCard from "../components/WorkoutCard";
 import WorkoutForm from "../components/WorkoutForm";
 
 const Home = () => {
@@ -40,19 +40,19 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
       {flash && <p className="error">{flash}</p>}
-      <div className="col-span-1 flex flex-col justify-start items-center">
+      <div className="col-span-2 flex flex-col justify-start items-center w-full">
         <WorkoutForm
           workouts={workouts}
           setNewWorkouts={setNewWorkouts}
           setFlashMessage={setFlash}
         />
       </div>
-      <div className="col-span-2 flex flex-col justify-start items-center">
+      <div className="col-span-3 flex flex-col justify-start items-center">
         {workouts &&
           workouts.map((workout) => (
-            <Workout
+            <WorkoutCard
               workout={workout}
               key={workout._id}
               workouts={workouts}

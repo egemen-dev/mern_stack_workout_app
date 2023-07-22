@@ -66,14 +66,14 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
 
   return (
     <form
-      className="card w-96 bg-base-100 shadow-xl border border-base-200 my-8 flex flex-col justify-start items-center p-4 gap-3"
+      className="card w-96 bg-base-100 shadow-xl border border-base-200 my-8 flex flex-col justify-start items-center p-4 gap-3 w-full md:w-4/5"
       onSubmit={handleSubmit}
     >
       <h3 className="card-title">Workout</h3>
 
       <label className="label">Completed:</label>
       <select
-        className="select select-success w-full max-w-xs"
+        className="select select-bordered w-full max-w-xs"
         value={type}
         onChange={(e) => setType(e.target.value)}
       >
@@ -94,8 +94,6 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      {/* This component will render the appropriate input fields based on the type of workout and rerender when the type changes */}
-      {console.log(type)}
       {type &&
         FormInputs({
           type,
@@ -107,9 +105,24 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
           setWeight,
           distance,
           setDistance,
-          duration,
-          setDuration,
         })}
+      <label className="label">Duration (min):</label>
+      <input
+        type="range"
+        min="0"
+        max="60"
+        value={duration}
+        class="range"
+        step="3"
+        onChange={(e) => setDuration(e.target.value)}
+      />
+      <div class="w-full flex justify-between text-xs px-2">
+        <span>0</span>
+        <span>15</span>
+        <span>30</span>
+        <span>45</span>
+        <span>60</span>
+      </div>
       <div className="w-full flex justify-center pt-6">
         <button type="submit" className="btn btn-outline btn-wide btn-success w-full">
           success
