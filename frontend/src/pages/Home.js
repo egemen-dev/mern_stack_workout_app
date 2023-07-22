@@ -40,27 +40,27 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {flash && <p className="error">{flash}</p>}
-      <div className="home">
+      <div className="col-span-1 flex flex-col justify-start items-center">
         <WorkoutForm
           workouts={workouts}
           setNewWorkouts={setNewWorkouts}
           setFlashMessage={setFlash}
         />
-        <div className="">
-          {workouts &&
-            workouts.map((workout) => (
-              <Workout
-                workout={workout}
-                key={workout._id}
-                workouts={workouts}
-                setNewWorkouts={setNewWorkouts}
-              />
-            ))}
-        </div>
       </div>
-    </>
+      <div className="col-span-2 flex flex-col justify-start items-center">
+        {workouts &&
+          workouts.map((workout) => (
+            <Workout
+              workout={workout}
+              key={workout._id}
+              workouts={workouts}
+              setNewWorkouts={setNewWorkouts}
+            />
+          ))}
+      </div>
+    </div>
   );
 };
 
