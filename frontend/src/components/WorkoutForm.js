@@ -65,11 +65,16 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h3>Add a New Workout</h3>
-
-      <label>Type:</label>
-      <select value={type} onChange={(e) => setType(e.target.value)}>
+    <form
+      className="card w-96 shadow-xl flex flex-col justify-start items-center p-6 gap-3 w-full border border-base-200"
+      onSubmit={handleSubmit}
+    >
+      <h3 className="card-title pb-4">New Workout</h3>
+      <select
+        className="select select-bordered w-full"
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+      >
         <option value="cardio">Cardio</option>
         <option value="lifting">Lifting</option>
         <option value="stretching">Stretching</option>
@@ -78,16 +83,15 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
         <option value="walking">Walking</option>
       </select>
 
-      <label>Title:</label>
+      <label className="label">Title:</label>
       <input
         type="text"
-        placeholder="e.g. Bench Press"
+        placeholder="e.g., bench press"
+        className="input input-bordered w-full"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      {/* This component will render the appropriate input fields based on the type of workout and rerender when the type changes */}
-      {console.log(type)}
       {type &&
         FormInputs({
           type,
@@ -99,19 +103,28 @@ const WorkoutForm = ({ workouts, setNewWorkouts, setFlashMessage }) => {
           setWeight,
           distance,
           setDistance,
-          duration,
-          setDuration,
         })}
-
-      <label>Completed:</label>
+      <label className="label">Duration (min):</label>
       <input
-        type="checkbox"
-        checked={completed}
-        onChange={(e) => setCompleted(e.target.checked)}
+        type="range"
+        min="0"
+        max="60"
+        value={duration}
+        className="range"
+        step="3"
+        onChange={(e) => setDuration(e.target.value)}
       />
-
-      <div className="button-container">
-        <button type="submit">Add Workout</button>
+      <div className="w-full flex justify-between text-xs px-2">
+        <span>0</span>
+        <span>15</span>
+        <span>30</span>
+        <span>45</span>
+        <span>60</span>
+      </div>
+      <div className="w-full flex justify-center pt-6">
+        <button type="submit" className="btn btn-outline btn-wide btn-success w-full">
+          success
+        </button>
       </div>
     </form>
   );

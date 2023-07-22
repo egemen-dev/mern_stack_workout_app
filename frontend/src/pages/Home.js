@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import WorkoutDetails from "../components/WorkoutDetails";
+import WorkoutCard from "../components/WorkoutCard";
 import WorkoutForm from "../components/WorkoutForm";
 
 const Home = () => {
@@ -40,27 +40,27 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="grid grid-cols-1 lg:grid-cols-5 my-6">
       {flash && <p className="error">{flash}</p>}
-      <div className="home">
+      <div className="col-span-2 flex flex-col lg:justify-start items-center p-4 lg:pl-40 lg:pr-8">
         <WorkoutForm
           workouts={workouts}
           setNewWorkouts={setNewWorkouts}
           setFlashMessage={setFlash}
         />
-        <div className="workouts">
-          {workouts &&
-            workouts.map((workout) => (
-              <WorkoutDetails
-                workout={workout}
-                key={workout._id}
-                workouts={workouts}
-                setNewWorkouts={setNewWorkouts}
-              />
-            ))}
-        </div>
       </div>
-    </>
+      <div className="col-span-3 flex flex-col lg:justify-start items-center p-4 lg:pr-40 lg:pl-8">
+        {workouts &&
+          workouts.map((workout) => (
+            <WorkoutCard
+              workout={workout}
+              key={workout._id}
+              workouts={workouts}
+              setNewWorkouts={setNewWorkouts}
+            />
+          ))}
+      </div>
+    </div>
   );
 };
 

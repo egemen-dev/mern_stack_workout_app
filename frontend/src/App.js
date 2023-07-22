@@ -9,12 +9,6 @@ import Register from "./pages/Register";
 import Logout from "./pages/Logout";
 import Navbar from "./components/Navbar";
 
-// TODO:
-// 1. Register a new user and save the token in localStorage - DONE
-// 2. Prevent logged in users from accessing the login and register pages - DONE
-// 3. Login a user and save the token in localStorage - DONE
-// 4. Logout a user and remove the token from localStorage - DONE
-
 function App() {
   const [user, setUser] = useState(null);
 
