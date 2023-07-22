@@ -21,11 +21,11 @@ const FormInputs = ({
             min="0"
             max="24"
             value={reps}
-            class="range"
+            className="range"
             step="4"
             onChange={(e) => setReps(e.target.value)}
           />
-          <div class="w-full flex justify-between text-xs px-2">
+          <div className="w-full flex justify-between text-xs px-2">
             <span>0</span>
             <span>4</span>
             <span>8</span>
@@ -40,11 +40,11 @@ const FormInputs = ({
             min="0"
             max="6"
             value={sets}
-            class="range"
+            className="range"
             step="1"
             onChange={(e) => setSets(e.target.value)}
           />
-          <div class="w-full flex justify-between text-xs px-2">
+          <div className="w-full flex justify-between text-xs px-2">
             <span>0</span>
             <span>1</span>
             <span>2</span>
@@ -59,11 +59,11 @@ const FormInputs = ({
             min="0"
             max="72"
             value={weight}
-            class="range"
+            className="range"
             step="6"
             onChange={(e) => setWeight(e.target.value)}
           />
-          <div class="w-full flex justify-between text-xs px-2">
+          <div className="w-full flex justify-between text-xs px-2">
             <span>0</span>
             <span>6</span>
             <span>12</span>
@@ -91,11 +91,11 @@ const FormInputs = ({
             min="0"
             max="20"
             value={distance}
-            class="range"
+            className="range"
             step="1"
             onChange={(e) => setDistance(e.target.value)}
           />
-          <div class="w-full flex justify-between text-xs px-2">
+          <div className="w-full flex justify-between text-xs px-2">
             <span>0</span>
             <span>5</span>
             <span>10</span>
