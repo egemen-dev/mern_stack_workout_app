@@ -104,9 +104,9 @@ const WorkoutTemplate = ({ workout, workouts, setNewWorkouts }) => {
         </div>
         {renderExerciseDetails()}
         <p>
-          <em className="flex justify-end">
+          <div className="flex justify-space-between text-sm">
             {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
-          </em>
+          </div>
         </p>
       </div>
     </div>
