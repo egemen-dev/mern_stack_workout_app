@@ -15,14 +15,8 @@ router.use(requireAuth);
 // GET all workouts
 router.get("/", getWorkouts);
 
-// GET one workout
-router.get("/:id", getWorkout);
-
 // POST one workout
 router.post("/", createWorkout);
-
-// UPDATE one workout
-router.patch("/:id", updateWorkout);
 
 // DELETE one workout
 router.delete("/:id", deleteWorkout);

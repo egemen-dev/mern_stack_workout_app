@@ -4,6 +4,11 @@ const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema(
   {
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
     type: {
       type: String,
       enum: ["cardio", "lifting", "stretching", "cycling", "running", "walking"],
@@ -41,11 +46,7 @@ const workoutSchema = new Schema(
     },
     duration: {
       type: Number,
-    },
-    completed: {
-      type: Boolean,
-      default: true,
-    },
+    }
   },
   { timestamps: true }
 );
