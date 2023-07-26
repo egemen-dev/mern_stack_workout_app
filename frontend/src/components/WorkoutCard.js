@@ -3,12 +3,16 @@ import WorkoutBadge from "./workout/WorkoutBadge";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import Details from "./workout/Details";
 
-const WorkoutCard = ({ workout, workouts, setNewWorkouts }) => {
+const WorkoutCard = ({ user, workout, workouts, setNewWorkouts }) => {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this workout?")) return;
 
     const response = await fetch(`/api/workouts/${workout._id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
     });
 
     if (response.ok) {
