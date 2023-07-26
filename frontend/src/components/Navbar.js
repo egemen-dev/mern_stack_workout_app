@@ -1,7 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, setUser }) => {
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    return <Navigate to="/login" />;
+  };
+
   return (
     <div className="navbar bg-base-200 lg:px-48">
       <div className="flex-1">
@@ -9,6 +15,7 @@ const Navbar = ({ user }) => {
           <h1>Workout Tracker</h1>
         </Link>
       </div>
+      {user && <div>Welcome, {user.username}</div>}
       <div className="flex-none px-6">
         <div className="flex gap-6">
           {!user && (
@@ -18,7 +25,7 @@ const Navbar = ({ user }) => {
             </>
           )}
           {user && (
-            <Link to="/logout" onClick={() => localStorage.removeItem("user")}>
+            <Link to="/" onClick={handleLogout}>
               Logout
             </Link>
           )}

@@ -6,13 +6,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Logout from "./pages/Logout";
 import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  // Check if user is logged in
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("user")));
   }, []);
@@ -20,8 +18,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar user={user} />
-        <p>{user && `${user.email} logged in`}</p>
+        <Navbar user={user} setUser={setUser} />
         <div className="pages">
           <Routes>
             <Route
@@ -34,7 +31,6 @@ function App() {
               element={!user ? <Register /> : <Navigate to="/" />}
               user={user}
             />
-            <Route path="/logout" element={<Logout />} />
             <Route path="/" element={!user ? <Navigate to="/login" /> : <Home />} />
           </Routes>
         </div>
