@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const createJWT = (_id) => {
   return jwt.sign({ _id }, process.env.JWT_SECRET, {
-    expiresIn: "3d",
+    expiresIn: "14d",
   });
 };
 
@@ -16,7 +16,7 @@ const userLogin = async (req, res) => {
 
     const token = createJWT(user._id);
 
-    res.status(200).json({ email, token });
+    res.status(200).json({ username: user.username, email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -31,7 +31,7 @@ const userRegister = async (req, res) => {
 
     const token = createJWT(user._id);
 
-    res.status(201).json({ email, token });
+    res.status(201).json({ username: user.username, email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
