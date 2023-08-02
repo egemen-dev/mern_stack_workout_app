@@ -29,7 +29,7 @@ userSchema.statics.register = async function (username, email, password) {
   // validation
   if (!username || !email || !password) throw new Error("Invalid data");
   if (!validator.isEmail(email)) throw new Error("Email is invalid");
-  if (!validator.isStrongPassword(password)) throw new Error("Password is weak");
+  if (password.length < 6) throw new Error("Password must be at least 6 characters");
 
   const emailExists = await this.findOne({ email });
   const usernameExists = await this.findOne({ username });
