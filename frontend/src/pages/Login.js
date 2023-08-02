@@ -24,9 +24,9 @@ const Login = () => {
     <div className="flex justify-center items-center h-screen">
       <form
         onSubmit={handleSubmit}
-        className="card p-6 bg-base-200 border border-base-50 flex flex-col justify-center items-center gap-3 w-full max-w-md shadow-lg"
+        className="card p-6 flex flex-col justify-center items-center gap-3 w-full max-w-md shadow-2xl"
       >
-        <h3 className="card-title">Login</h3>
+        <h3 className="card-title border-b-2 pb-3">Login</h3>
         <label>Email Address</label>
         <input
           type="email"
