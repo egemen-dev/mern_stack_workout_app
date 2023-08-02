@@ -1,5 +1,5 @@
 {
-  "proxy": "https://mern-workout-app-w619.onrender.com",
+  "proxy": "https://mern-workout-app-w619.onrender.com:10000",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
