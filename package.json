@@ -2,10 +2,10 @@
   "name": "mern_workout_app",
   "version": "1.0.0",
   "description": "workout tracker app",
-  "main": "./backend/index.js",
+  "main": "./backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd ./backend && node index.js"
+    "start": "cd backend && node server.js"
   },
   "engines": {
     "node": "16.x"
