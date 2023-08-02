@@ -15,21 +15,34 @@ const Navbar = ({ user, setUser }) => {
           <h1>Workout Tracker</h1>
         </Link>
       </div>
-      {user && <div>Welcome, {user.username}</div>}
       <div className="flex-none px-6">
-        <div className="flex gap-6">
-          {!user && (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
-            </>
-          )}
-          {user && (
-            <Link to="/" onClick={handleLogout}>
-              Logout
-            </Link>
-          )}
-        </div>
+        <ul class="menu menu-horizontal px-1">
+          <li>
+            <details>
+              <summary>Options</summary>
+              <ul class="p-2 bg-base-100 z-50">
+                {!user && (
+                  <>
+                    <li>
+                      <Link to="/login">Login</Link>
+                    </li>
+                    <li>
+                      <Link to="/register">Register</Link>
+                    </li>
+                  </>
+                )}
+                {user && (
+                  <li>
+                    <Link to="/" onClick={handleLogout}>
+                      Logout
+                    </Link>
+                  </li>
+                )}
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <div className="flex gap-6"></div>
       </div>
     </div>
   );
